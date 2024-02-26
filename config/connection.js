@@ -14,6 +14,6 @@ const sequelize = new Sequelize(
     port: 3306
   }
 );
-console.log(process.env.DB_PASSWORD)
+//console.log(process.env.DB_PASSWORD)
 
 module.exports = sequelize;

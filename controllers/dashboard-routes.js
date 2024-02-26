@@ -3,7 +3,7 @@ const path = require('path');
 
 // This is the 'get' route 
 router.get('/', async (req, res) => {
-  res.render('home');
+  res.render('dashboard');
 });
 
 module.exports = router;
