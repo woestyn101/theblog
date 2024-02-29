@@ -1,7 +1,7 @@
-var signUpForm = document.querySelector('.signup-user');
+var signInForm = document.querySelector('.signin-user');
 
 
-const signupFormHandler = async (event) => {
+const signInFormHandler = async (event) => {
     event.preventDefault();
 
     
@@ -11,7 +11,7 @@ const signupFormHandler = async (event) => {
 
   
     if (username && password) {
-      const response = await fetch('/api/users', {
+      const response = await fetch('/api/users/signin', {
         method: 'POST',
         body: JSON.stringify({ username, password }),
         headers: { 'Content-Type': 'application/json' },
@@ -27,4 +27,4 @@ const signupFormHandler = async (event) => {
     }
   };
 
-  signUpForm.addEventListener('submit', signupFormHandler);
+  signInForm.addEventListener('submit', signInFormHandler);
