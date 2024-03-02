@@ -47,7 +47,7 @@ router.get('/signup', async (req, res) => {
 
 
 router.get('/logout', async (req, res) => {
-  res.render('logout');
+  res.render('home');
 });
 
 
