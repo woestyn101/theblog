@@ -47,7 +47,25 @@ router.get('/signup', async (req, res) => {
 
 
 router.get('/logout', async (req, res) => {
-  res.render('home');
+
+  try {
+    // Get all projects and JOIN with user data
+    const blogPostData = await Blogpost.findAll({
+      include: [User],
+    });
+
+    // Serialize data so the template can read it
+    const blogposts = blogPostData.map((blogpost) => blogpost.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('home', { 
+      blogposts, 
+      //logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+ // res.render('home');
 });
 
 
