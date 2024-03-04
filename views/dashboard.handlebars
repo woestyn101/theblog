@@ -23,4 +23,38 @@
             <button type="submit" class="btn btn-primary">post</button>
      </form>
 
+   
+</div>
+
+
+
+<div class="container mt-4">
+  <div class="card" >
+    <div class="card-body">
+    <h5 class="card-title">Your projects:</h5>
+    <p class="card-text">
+
+
+  {{#if blogposts.length}}
+  <div class="col-md-6 project-list">
+   
+
+    {{#each blogposts as |blogpost|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="api/blogpost/{{blogpost.bp_id}}">{{blogpost.title}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{blogpost.bp_id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+
+    </p>
+    
+  </div>
+</div>
+</div>
       <script src="./js/postblog.js"></script>
