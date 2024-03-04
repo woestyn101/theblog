@@ -5,7 +5,9 @@
     <h5 class="card-title"> Title: {{ title }}</h5>   
    
     <p class="card-text">Content: {{ p_content }}</p>
-     <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+     <h6 class="card-subtitle mb-2 text-body-secondary">Created by {{user.username}} on {{format_date user.createdAt}}</h6>
+
+    
      
    
   </div>

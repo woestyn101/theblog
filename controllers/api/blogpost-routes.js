@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
 
   router.get('/:id', withAuth, async (req, res) => {
     try {
-      const projectData = await Blogpost.findByPk(req.params.id, {
+      const blogPostData = await Blogpost.findByPk(req.params.id, {
         include: [
           {
             model: User,
@@ -33,10 +33,10 @@ router.post('/', (req, res) => {
         ],
       });
   
-      const project = projectData.get({ plain: true });
+      const blogposts = blogPostData.get({ plain: true });
   
       res.render('blogpost', {
-        ...project,
+        ...blogposts,
         logged_in: req.session.logged_in
       });
     } catch (err) {
