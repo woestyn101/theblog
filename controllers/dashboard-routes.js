@@ -14,6 +14,8 @@ router.get('/', withAuth, async (req, res) => {
       include: [{ model: Blogpost }],
     });
 
+    
+
     const user = userData.get({ plain: true });
 
     res.render('dashboard', {
@@ -24,5 +26,7 @@ router.get('/', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
 
 module.exports = router;
