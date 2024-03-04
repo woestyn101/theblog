@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const { User, Blogpost, Comment } = require('../../models');
 // CREATE a user
+const withAuth = require('../../utils/auth');
 
 router.post('/', (req, res) => {
     console.log("add blog route");
@@ -21,7 +22,7 @@ router.post('/', (req, res) => {
       });
   });
 
-  router.get('/:id', async (req, res) => {
+  router.get('/:id', withAuth, async (req, res) => {
     try {
       const projectData = await Blogpost.findByPk(req.params.id, {
         include: [
