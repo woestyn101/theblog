@@ -1,5 +1,8 @@
 const router = require('express').Router();
+
+//importing models from sequelize
 const { User, Blogpost, Comment } = require('../../models');
+
 // CREATE a user
 router.post('/', (req, res) => {
     // Use Sequelize's `create()` method to add a row to the table
@@ -17,8 +20,12 @@ router.post('/', (req, res) => {
       });
   });
 
+  // signin page
+
   router.post('/signin', async (req, res) => {
     try {
+
+      // look for user in database
       const userData = await User.findOne({ where: { username: req.body.username } });
   
       if (!userData) {
@@ -27,7 +34,8 @@ router.post('/', (req, res) => {
           .json({ message: 'Incorrect email or password, please try again' });
         return;
       }
-  
+
+     //check for password
       const validPassword = await userData.checkPassword(req.body.password);
   
       if (!validPassword) {
@@ -36,7 +44,8 @@ router.post('/', (req, res) => {
           .json({ message: 'Incorrect email or password, please try again' });
         return;
       }
-  
+
+     // setting up the session and creating session variables
       req.session.save(() => {
         req.session.user_id = userData.u_id;
         req.session.username = userData.username;        
@@ -49,6 +58,7 @@ router.post('/', (req, res) => {
     }
   });
   
+  // logging out the user and destroying the session
   router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
       req.session.destroy(() => {

@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const path = require('path');
+
+// importing the models from sequelize
 const { User, Blogpost, Comment } = require('../models');
 
 
@@ -8,7 +10,7 @@ const { User, Blogpost, Comment } = require('../models');
 router.get('/', async (req, res) => {
   
   try {
-    // Get all projects and JOIN with user data
+    // Get all posts and JOIN with user data
     const blogPostData = await Blogpost.findAll({
       include: [User],
     });
@@ -28,7 +30,7 @@ router.get('/', async (req, res) => {
   
 });
 
-
+// signin page
 router.get('/signin', async (req, res) => {
   
   if (req.session.logged_in) {
@@ -39,12 +41,13 @@ router.get('/signin', async (req, res) => {
  
 });
 
-
-
+// signup page
 router.get('/signup', async (req, res) => {
   res.render('signup');
 });
 
+
+// logout page
 
 router.get('/logout', async (req, res) => {
 
@@ -67,6 +70,9 @@ router.get('/logout', async (req, res) => {
   }
  // res.render('home');
 });
+
+// setting up the dashboard to get id from user
+// and show use posts
 
 router.get('/dashboard/:id', async (req, res) => {
   try {

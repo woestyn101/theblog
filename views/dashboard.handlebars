@@ -1,4 +1,5 @@
 <h2>Your Dashboard</h2>
+  <!-- Getting username from database  and outputting to html-->
 <h2>Welcome {{username }}</h2>
 <div class="container mt-4">
         <div class="card" >
@@ -6,6 +7,8 @@
                 Create a post
             </div>
             <div class="card-body">
+
+                <!-- form to create post-->
         <form class="post-user">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
@@ -34,7 +37,7 @@
     <h5 class="card-title">Your projects:</h5>
     <p class="card-text">
 
-
+  <!-- checking for posts from database and outputting to html-->
   {{#if blogposts.length}}
   <div class="col-md-6 project-list">
    
@@ -61,4 +64,5 @@
   </div>
 </div>
 </div>
+  <!-- linking to js files to submit form-->
       <script src="./js/postblog.js"></script>

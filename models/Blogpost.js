@@ -1,6 +1,10 @@
+// importing Model and datatypes from sequelize
 const { Model, DataTypes } = require('sequelize');
+
+// importing connection to database
 const sequelize = require('../config/connection');
 
+// creating the Blogpost Model
 class Blogpost extends Model {}
 
 Blogpost.init(

@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const path = require('path');
+
+// importing models from sequelize
 const { User, Blogpost, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 

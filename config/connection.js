@@ -1,9 +1,11 @@
+// importing sequelize
 const Sequelize = require('sequelize');
 
 // Enable access to .env variables
 require('dotenv').config();
 let sequelize;
 
+// using environmental variables
 if (process.env.CLEARDB_DATABASE_URL) {
   sequelize = new Sequelize(process.env.CLEARDB_DATABASE_URL);
 } else {

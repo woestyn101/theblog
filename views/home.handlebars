@@ -1,15 +1,16 @@
 <h2>Welcome to my blog!</h2>
 
-<!-- Loop over each object in the projects array -->
+<!-- Loop over each post in the database -->
 {{#each blogposts as |userpost| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
     <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
+      <!-- getting post id and title from database-->
     
       <a href="/api/blogpost/{{userpost.bp_id}}">{{userpost.title}}</a>
     </h2>
     
+     <!-- getting post id and title from database-->
     <p>Created by {{userpost.user.username}} on {{format_date userpost.createdAt}}</p>
   </div>
   

@@ -1,11 +1,13 @@
+// getting variable for form
+
 var signInForm = document.querySelector('.signin-user');
 
-
+// function to handle form submit
 const signInFormHandler = async (event) => {
     event.preventDefault();
 
     
-  
+    /// setting variables from form submit
     const username = document.querySelector('#username').value.trim();
     const password = document.querySelector('#password').value.trim();
 

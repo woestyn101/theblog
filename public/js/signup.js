@@ -1,10 +1,12 @@
+// getting variable from signup page
+
 var signUpForm = document.querySelector('.signup-user');
 
-
+// function to handle the form submit
 const signupFormHandler = async (event) => {
     event.preventDefault();
 
-    
+    // setting variables from form
   
     const username = document.querySelector('#username').value.trim();
     const password = document.querySelector('#password').value.trim();
