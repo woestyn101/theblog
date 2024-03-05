@@ -28,7 +28,7 @@ to discuss technical concepts and new technologies.
 
 ## Screenshot of website
 
-![Website Screenshot](./public/assets/images/app_screenshot.jpg)
+![Website Screenshot](./public/images/app_screenshot.jpg)
 
 ## Credits: Resources used
 
