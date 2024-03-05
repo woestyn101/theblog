@@ -1,5 +1,6 @@
 var postForm = document.querySelector('.post-user');
 var deleteButton = document.querySelector('#delBtn');
+var editButton = document.querySelector('#editBtn');
 
 
 const postFormHandler = async (event) => {
@@ -47,3 +48,12 @@ const postFormHandler = async (event) => {
   };
   
   deleteButton.addEventListener('click', delButtonHandler);
+
+
+  const editButtonHandler = async (event) => {
+
+    document.location.replace('update');
+    
+  };
+
+  editButton.addEventListener('click', editButtonHandler);

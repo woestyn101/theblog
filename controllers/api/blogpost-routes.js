@@ -65,5 +65,28 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
+// Updates book post on its id
+router.put('/update/:id', (req, res) => {
+  // Calls the update method on the Book model
+  Blogpost.update(
+    {
+      // All the fields you can update and the data attached to the request body.
+      title: req.body.update_title,
+      p_content: req.body.update_yourpost,
+      },
+    {
+      // Gets the books based on the isbn given in the request parameters
+      where: {
+        bp_id: req.params.id,
+      },
+    }
+  )
+    .then((updatedPost) => {
+      // Sends the updated book as a json response
+      res.json(updatedPost);
+    })
+    .catch((err) => res.json(err));
+});
+
 
 module.exports = router;
