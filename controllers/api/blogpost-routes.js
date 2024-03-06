@@ -94,5 +94,31 @@ router.put('/update/:id', (req, res) => {
     .catch((err) => res.json(err));
 });
 
+// Use withAuth middleware to prevent access to route
+router.get('/edit/:id', withAuth, async (req, res) => {
+  try {
+    const blogPostData = await Blogpost.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+         // attributes: ['name'],
+        },
+      ],
+    });
+
+   // serialized the data
+    const blogposts = blogPostData.get({ plain: true });
+
+
+      // render page and send variable
+    res.render('update', {
+      ...blogposts,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;

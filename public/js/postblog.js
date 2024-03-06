@@ -1,7 +1,9 @@
+console.log("yes");
+
 // getting variables from form
 
 var postForm = document.querySelector('.post-user');
-var deleteButton = document.querySelector('#delBtn');
+//var deleteButton = document.querySelector('#delBtn');
 var editButton = document.querySelector('#editBtn');
 
 // function to hangle form submit
@@ -38,6 +40,9 @@ const postFormHandler = async (event) => {
   // delete function
 
   const delButtonHandler = async (event) => {
+    event.preventDefault();
+    console.log(event.target);
+    console.log(event.target.hasAttribute('data-id'));
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
@@ -55,15 +60,5 @@ const postFormHandler = async (event) => {
 
   // calling the delete function when button is pressed
   
-  deleteButton.addEventListener('click', delButtonHandler);
+  // deleteButton.addEventListener('click', delButtonHandler);
 
-// edit function
-  const editButtonHandler = async (event) => {
-
-    document.location.replace('update');
-    
-  };
-
-  // calling the edit function
-
-  editButton.addEventListener('click', editButtonHandler);

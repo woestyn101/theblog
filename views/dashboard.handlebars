@@ -48,11 +48,14 @@
         <h4><a href="api/blogpost/{{blogpost.bp_id}}">{{blogpost.title}}</a></h4>
       </div>
       <div class="col-md-2">
-        <button id="editBtn" class="btn btn-sm btn-warning" data-id="{{blogpost.bp_id}}">Edit</button>
+         <a href="/api/blogpost/edit/{{blogpost.bp_id}}">Edit</a>
+        {{!-- <button id="editBtn" class="btn btn-sm btn-warning" data-id="{{blogpost.bp_id}}">Edit</button> --}}
       </div>
       <div class="col-md-2">
-        <button id="delBtn" class="btn btn-sm btn-danger" data-id="{{blogpost.bp_id}}">DELETE</button>
+        <button id="delBtn" onclick="delButtonHandler(event)" class="btn btn-sm btn-danger" data-id="{{blogpost.bp_id}}">DELETE</button>
       </div>
+
+      
       
     </div>
     {{/each}}
@@ -65,4 +68,4 @@
 </div>
 </div>
   <!-- linking to js files to submit form-->
-      <script src="./js/postblog.js"></script>
+      <script src="/js/postblog.js"></script>
