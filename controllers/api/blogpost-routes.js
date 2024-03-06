@@ -78,7 +78,7 @@ router.put('/update/:id', (req, res) => {
     {
       // All the fields you can update and the data attached to the request body.
       title: req.body.update_title,
-      p_content: req.body.update_yourpost,
+      p_content: req.body.update_post,
       },
     {
       // Gets the post based on the id given in the request parameters

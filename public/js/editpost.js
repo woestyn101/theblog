@@ -8,7 +8,7 @@ console.log(updateForm);
 // update_title.value = "title";
 // update_post.value = "content";
 
-var mytitle = document.getElementById("update_title").value = "marius";
+// var mytitle = document.getElementById("update_title").value = "marius";
 
 
 

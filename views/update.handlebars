@@ -1,5 +1,5 @@
-<p>Title: {{ title }}</p>
-<p>{{ p_content }}</p>
+{{!-- <p>Title: {{ title }}</p>
+<p>{{ p_content }}</p> --}}
 <div class="container mt-4">
         <div class="card" >
             <div class="card-header">
@@ -9,13 +9,13 @@
         <form class="update-post" data-id="{{ bp_id }}">
             <div class="mb-3">
                 <label for="update_title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="update_title" name="title">
+                <input type="text" class="form-control" id="update_title" value="{{ title }}" name="title">
               </div>
 
               <div class="mb-3">
                 <label for="update_yourpost" class="form-label">Your post</label>
               <div class="form-floating">
-                <textarea class="form-control" id="update_yourpost"></textarea>
+                <textarea class="form-control" id="update_yourpost">{{ p_content }}</textarea>
                 
                 </div>
             </div>
