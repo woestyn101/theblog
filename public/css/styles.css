@@ -60,3 +60,9 @@ nav li a:hover {
 .button-24:active {
     background: #fdff00;
 }
+
+
+#logout {
+    color:white;
+    cursor: pointer;
+  }

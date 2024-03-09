@@ -30,7 +30,8 @@ router.post('/', (req, res) => {
       const blogPostData = await Blogpost.findByPk(req.params.id, {
         include: [
           {
-            model: User,
+            model: User, Comment
+          
            // attributes: ['name'],
           },
         ],
@@ -38,7 +39,7 @@ router.post('/', (req, res) => {
   
      // serialized the data
       const blogposts = blogPostData.get({ plain: true });
-  
+        
 
         // render page and send variable
       res.render('blogpost', {

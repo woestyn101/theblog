@@ -8,6 +8,11 @@
     <p class="card-text">Content: {{ p_content }}</p>
      <h6 class="card-subtitle mb-2 text-body-secondary">Created by {{user.username}} on {{format_date user.createdAt}}</h6>
 
+     <p id="getBpId" data-id="{{bp_id}}">{{bp_id}}</p>
+    
+
+    
+
     
      
    
@@ -27,6 +32,10 @@
             
             <button type="submit" class="btn btn-primary">Add Comment</button>
      </form>
+
+
+
+
 
 
 <script src="/js/add_comment.js"></script>
