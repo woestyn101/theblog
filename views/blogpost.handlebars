@@ -8,7 +8,7 @@
     <p class="card-text">Content: {{ p_content }}</p>
      <h6 class="card-subtitle mb-2 text-body-secondary">Created by {{user.username}} on {{format_date user.createdAt}}</h6>
 
-     <p id="getBpId" data-id="{{bp_id}}">{{bp_id}}</p>
+     <p id="getBpId" data-id="{{bp_id}}"></p>
     
 
     
@@ -33,7 +33,23 @@
             <button type="submit" class="btn btn-primary">Add Comment</button>
      </form>
 
-
+<!-- Loop over each post in the database -->
+{{#each commentposts as |usercomment| }}
+<div class="row mb-4 project">
+  <div class="col-md-5">
+    <h3 id="comments-title">Comments:</h3>
+    <h5>
+      <!-- getting post id and title from database-->
+    
+      <p>{{ usercomment.c_content}}</p>
+    </h5>
+    
+     <!-- getting post id and title from database-->
+    <p>Created by {{usercomment.user.username}} on {{format_date usercomment.createdAt}}</p>
+  </div>
+  
+</div>
+{{/each}}
 
 
 

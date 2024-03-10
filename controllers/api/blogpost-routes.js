@@ -36,6 +36,16 @@ router.post('/', (req, res) => {
           },
         ],
       });
+
+      const commentPostData = await Comment.findAll({
+      include: [User],
+        where: {
+        blogpost_id : req.params.id
+
+        }
+      });
+
+      const commentposts = commentPostData.map((commentpost) => commentpost.get({ plain: true }));
   
      // serialized the data
       const blogposts = blogPostData.get({ plain: true });
@@ -43,7 +53,7 @@ router.post('/', (req, res) => {
 
         // render page and send variable
       res.render('blogpost', {
-        ...blogposts,
+        ...blogposts, commentposts,
         logged_in: req.session.logged_in
       });
     } catch (err) {

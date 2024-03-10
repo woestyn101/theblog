@@ -24,4 +24,27 @@ router.post('/', withAuth, (req, res) => {
       });
   });
 
+  router.get('/', async (req, res) => {
+  
+    try {
+      // Get all posts and JOIN with user data
+      const commentPostData = await Comment.findAll({
+        include: [User, Blogpost],
+      });
+  
+      // Serialize data so the template can read it
+      const commentposts = commentPostData.map((commentpost) => commentpost.get({ plain: true }));
+  
+      // Pass serialized data and session flag into template
+      res.render('all_comments', { 
+        commentposts, 
+        logged_in: req.session.logged_in 
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  
+    
+  });
+
 module.exports = router;
