@@ -12,11 +12,12 @@ router.get('/', async (req, res) => {
   try {
     // Get all posts and JOIN with user data
     const blogPostData = await Blogpost.findAll({
-      include: [User],
+      include: [User, Comment],
     });
 
     // Serialize data so the template can read it
     const blogposts = blogPostData.map((blogpost) => blogpost.get({ plain: true }));
+    console.log(blogposts);
 
     // Pass serialized data and session flag into template
     res.render('home', { 

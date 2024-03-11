@@ -12,11 +12,16 @@ router.post('/', (req, res) => {
       password: req.body.password,
          })
       .then((newUser) => {
+
         // Send the newly created row as a JSON object
-        res.json(newUser);
+        res.status(200).json(newUser);
       })
       .catch((err) => {
-        res.json(err);
+        if(err.name === "SequelizeUniqueConstraintError"){
+          res.status(400).json({error: err, message:"Username already exists, please try a different username."});
+        }else{
+          res.status(400).json({error: err, message:"Unable to create a user!"});
+        }
       });
   });
 

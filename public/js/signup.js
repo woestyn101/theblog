@@ -19,12 +19,13 @@ const signupFormHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
       });
   
-      if (response.ok) {
+      if (response.ok) { // response.ok will equate to 200
       document.location.replace('/dashboard');
      console.log("ok");
       } else {
-        alert(response.statusText);
-        console.log("error");
+        response.json().then(err=>{
+          alert(err.message)
+        });
       }
     }
   };
